@@ -21,15 +21,13 @@ def browser(request):
     elif lang=='es':
         user_lang='es'
     else:
-        raise pytest.UsageError("You need write --language=en or =fr or =ru or =es")
+        raise pytest.UsageError("You need write --language =en or =fr or =ru or =es")
 
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': user_lang})
     browser = webdriver.Chrome(options=options)
     
     yield browser
-    time.sleep(5)
-
-    
+    time.sleep(2) 
   
     browser.quit()
